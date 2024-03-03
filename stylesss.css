@@ -1,0 +1,199 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --first-color: hsl(0, 0%, 0%);
+  --text-color: #000000;
+  --text-color-black: hsl(30, 8%, 15%);
+  /* Remove the unused variable --body-color here */
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --h3-font-size: 1rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --h3-font-size: 1rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+  :root {
+    --h3-font-size: 1.125rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  
+}
+/*=============== GALLERY ===============*/
+.gallery {
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  position: relative; /* Ensure relative positioning */
+}
+
+.gallery__overflow {
+  position: relative;
+  overflow: hidden; /* Hide overflow to prevent other slides from being visible */
+}
+
+.gallery__thumbnail {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform .3s;
+  z-index: 2; /* Ensure thumbnails are above other content */
+}
+
+.gallery__thumbnail-img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.swiper-slide-active .gallery__thumbnail {
+  transform: translateY(-1.25rem) scale(1.2);
+  z-index: 3; /* Ensure active thumbnail is above other thumbnails */
+}
+
+/* Swiper class */
+.gallery-cards,
+.gallery-thumbs {
+  width: 260px;
+  z-index: 1; /* Ensure gallery cards and thumbnails are below other content */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Swiper class */
+.gallery-cards,
+.gallery-thumbs {
+  width: 260px;
+}
+
+.gallery-cards:hover .gallery__img {
+  transform: scale(1.1);
+}
+
+.gallery .swiper-wrapper {
+  padding: 2.5rem 0;
+}
+
+.gallery-thumbs {
+  height: 132px;
+}
+
+/* Active thumbnail */
+.swiper-slide-active .gallery__thumbnail {
+  transform: translateY(-1.25rem) scale(1.2);
+}
+
+/* Rotate thumbnail */
+.swiper-slide-next .gallery__thumbnail {
+  transform: rotate(15deg);
+}
+
+.swiper-slide-prev .gallery__thumbnail {
+  transform: rotate(-15deg);
+}
+
+/* Sliding numbers */
+.swiper-pagination-fraction {
+  font-size: var(--small-font-size);
+  letter-spacing: -1px;
+  font-weight: 500;
+  color: var(--first-color);
+  bottom: 0;
+}
+
+/* Arrow buttons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: '';
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  font-size: 1.5rem;
+  color: var(--text-color-black);
+  top: 5.5rem;
+}
+
+.swiper-button-next {
+  right: -1.5rem;
+  transform: rotate(15deg);
+}
+
+.swiper-button-prev {
+  left: -1.5rem;
+  transform: rotate(-15deg);
+}
+
+/* Other swiper settings */
+.gallery-cards::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.swiper-horizontal.swiper-css-mode > .swiper-wrapper {
+  scroll-snap-type: initial;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 1024px) {
+  .gallery__card {
+    width: 220px;
+    height: 290px;
+  }
+  .gallery__thumbnail {
+    width: 65px;
+    height: 65px;
+  }
+  .gallery-cards,
+  .gallery-thumbs {
+    width: 280px;
+  }
+}
