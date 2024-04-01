@@ -7,10 +7,160 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/fbbb943246.js" crossorigin="anonymous"></script>
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet"href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/fbbb943246.js" crossorigin="anonymous"></script>
+<!--Leaflet CSS --><linkrel="stylesheet"href="https://unpkg.com/leaflet/dist/leaflet.css"/><!--Leaflet JavaScript --><scriptsrc="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <style>
+
+.social__icon--links {
+color
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+}
+
+/* style for each button */
+.button {
+  margin: 0 10px; /* add some margin between buttons */
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.instagram {
+  margin-top: 1.5em;
+  margin-left: 1.2em;
+  fill: #cc39a4;
+}
+
+.card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.twitter {
+  margin-top: 1.5em;
+  margin-left: -.9em;
+  fill: #03A9F4;
+}
+
+.card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.github {
+  margin-top: -.6em;
+  margin-left: 1.2em;
+}
+
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.card3 {
+  z-index: 10000;
+}
+.discord {
+  margin-top: -.9em;
+  margin-left: -1.2em;
+  fill: #8c9eff;
+}
+
+.card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+
+.card1:hover .instagram {
+  fill: white;
+}
+
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03A9F4;
+}
+
+.card2:hover .twitter {
+  fill: white;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: black;
+}
+
+.card3:hover .github {
+  fill: white;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #8c9eff;
+}
+
+.card4:hover .discord {
+  fill: white;
+}
+
+.card3:hover .facebook {
+  fill: blue; /* Change the fill color to blue */
+}
 
   .Map {
     transition: transform 0.3s;
@@ -173,43 +323,143 @@
     color: #c98b19;
     transition: all 0.3s ease;
   }
+
+  .navbar__btn {
+    button {
+ --glow-color: rgb(217, 176, 255);
+ --glow-spread-color: rgba(191, 123, 255, 0.781);
+ --enhanced-glow-color: rgb(231, 206, 255);
+ --btn-color: rgb(100, 61, 136);
+ border: .25em solid var(--glow-color);
+ padding: 1em 3em;
+ color: var(--glow-color);
+ font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+}
+
+button::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+button:hover {
+ color: var(--btn-color);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+  }
+
   
+
+
+
+
+ 
+  /* Style CSS pour le conteneur du pop-up */
+  .popup-container{
+    max-height: 200px; /* Hauteur maximale du conteneur */
+    overflow-y: auto; /* Défilement vertical */
+    white-space: nowrap; /* Les images restent sur une seule ligne */
+  }
+  .popup-containerimg{
+    margin-right: 10px; /* Marge entre les images */
+  }
+ 
+  
+  #map-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  height: 500px; /* Set a fixed height for the map container */
+  width: 80%; /* Adjust the width as needed */
+  background-color: black !important; /* Ensure the background color is black */
+  z-index: 1000;
+}
+
+#map-box {
+  height: 100%; /* Set the height to 100% to fill the map container */
+  width: 100%; /* Set the width to 100% to fill the map container */
+  background-color: black !important; /* Ensure the background color is black */
+  z-index: 1000;
+}
+
+#mapp {
+  height: 100%;
+  width: 100%;
+}
+
+
+
 </style>
 </head>
 <body>
-<nav class="navbar">
-  <div class="navbar__container">
-    <a href="index.html" id="navbar__logo"> <img class="Compass" src="Compass.png" 
-      style="margin-right: 10px; width: 50px;"> Boussole</a>
-      <div class="navbar__toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="navbar__menu">
-        <li class="navbar__item">
-          <a href="index.html" class="navbar__links">
-            Menue
-          </a>
-        </li> 
-        <li class="navbar__item">
-          <a href="NosProjets.html" class="navbar__links">
-            Nos Projets
-          </a>
-        </li>
-        <li class="navbar__item">
-          <a href="QuiNousSommes.html" class="navbar__links">
-            Qui Nous Sommes
-          </a>
-        </li>
-        <li class="navbar__btn">
-          <a href="Carte.html" class="button">
-            Carte
-          </a>
-        </li>
-      </ul>
-  </div>
-</nav>
+
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="index.html" id="navbar__logo"> <img class="compass"  src="Compass.png" 
+        style="margin-right: 10px; width: 50px;"> Boussole</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__links">
+              Menu
+            </a>
+          </li> 
+          <li class="navbar__item">
+            <a href="NosProjets.html" class="navbar__links">
+              Galerie
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a href="gallerie.html" class="navbar__links">
+              Nos Projets
+            </a>
+          </li> 
+          <li class="navbar__item"> 
+            <a href="QuiNousSommes.html" class="navbar__links">
+              Qui Nous Sommes
+            </a>
+          </li>
+          <li class="navbar__btn">
+            <a href="Carte.html" class="button">
+              Carte
+            </a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+
+
 
 <div class="main">
   <div class="main__container">
@@ -226,23 +476,15 @@
   </div>
 </div>
 
+<iframe src="https://my.atlist.com/map/7a800155-4534-4a04-8dd1-5acc0fa905ca/?share=true" allow="geolocation 'self' https://my.atlist.com" width="100%" height="800px" loading="lazy" frameborder="0" scrolling="no" allowfullscreen id="atlist-embed"></iframe>
 
 
-<div class="services">
-  <h1>Apprendre Plus</h1>
-  <div class="services__container">
-    <div class="services__card">
-      <h2>Nos Photos</h2>
-      <p>Experiences Capturé</p>
-      <button>Regardez</button>
-    </div>
-    <div class="services__card">
-      <h2>Nos Vidéos</h2>
-      <p>Experiences Filmés</p>
-      <button>Regardez</button>
-      </div>
-  </div>   
-</div>
+
+
+
+
+
+
 
 <div class="footer__container">
   <div class="footer__links">
@@ -281,6 +523,8 @@
     </div>
   </div>
 </div>
+
+
 
 <script src="app.js"></script>
 </body>
